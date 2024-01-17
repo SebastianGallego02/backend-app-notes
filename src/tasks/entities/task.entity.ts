@@ -1,19 +1,27 @@
-import { Column, DeleteDateColumn, Entity, PrimaryGeneratedColumn  } from "typeorm";
+import { Category } from "src/categories/entities/category.entity";
+import { Column, DeleteDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn  } from "typeorm";
 
 @Entity()
 export class Task {
   //@PrimaryGeneratedColumn()
   @Column({primary: true, generated: true})
   id: number;
+
   @Column()
   description: string;
-  @Column()
-  category: number;
-  @Column()
+
+  @Column({default: true})
   active: boolean;
-  @Column()
+
+  @Column({default: false})
   archived: boolean;
+
   @DeleteDateColumn()
   deletedAt: Date;
+
+  @ManyToOne(()=> Category, (category)=>category.id, {
+    eager: true, 
+  })
+  category: Category;
 }
   

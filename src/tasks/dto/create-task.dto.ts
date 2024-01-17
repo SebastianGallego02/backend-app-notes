@@ -1,7 +1,5 @@
 import { 
   MinLength, 
-  IsInt, 
-  IsPositive, 
   IsString, 
   IsOptional 
 } from "class-validator";
@@ -12,11 +10,12 @@ export class CreateTaskDto {
   @MinLength(1)
   description: string;
 
-  @IsInt()
-  @IsPositive()
-  category: number;
+  @IsString()
+  category: string;
+
   @IsOptional()
   active?: boolean;
+  
   @IsOptional()
   archived?: boolean;
 

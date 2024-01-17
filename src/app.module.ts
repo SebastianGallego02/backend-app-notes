@@ -1,10 +1,10 @@
 import { Module } from '@nestjs/common';
 import { TasksModule } from './tasks/tasks.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { CategoriesModule } from './categories/categories.module';
 
 @Module({
   imports: [
-    TasksModule,
     TypeOrmModule.forRoot({
       type: 'mysql',
       host: 'localhost',
@@ -14,7 +14,9 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       database: 'db_crud',
       autoLoadEntities: true,
       synchronize: true
-    })
+    }),
+    TasksModule,
+    CategoriesModule
   
   ],
   controllers: [],
