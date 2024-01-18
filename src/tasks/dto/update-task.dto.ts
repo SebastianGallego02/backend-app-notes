@@ -17,6 +17,9 @@ export class UpdateTaskDto {
   active?: boolean;
 
   @IsOptional()
+  completed?: boolean;
+
+  @IsOptional()
   archived?: boolean;
 
   

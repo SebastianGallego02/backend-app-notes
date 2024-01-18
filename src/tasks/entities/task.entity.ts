@@ -16,6 +16,9 @@ export class Task {
   @Column({default: false})
   archived: boolean;
 
+  @Column({default: false})
+  completed: boolean;
+
   @DeleteDateColumn()
   deletedAt: Date;
 

@@ -15,6 +15,9 @@ export class CreateTaskDto {
 
   @IsOptional()
   active?: boolean;
+
+  @IsOptional()
+  completed?: boolean;
   
   @IsOptional()
   archived?: boolean;
